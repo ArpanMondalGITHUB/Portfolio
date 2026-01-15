@@ -93,8 +93,8 @@ const Contact = () => {
                 <ContactItem 
                   icon={Mail} 
                   title="Email" 
-                  value="arpanmondal9851@gmail.com" 
-                  link="mailto:arpanmondal9851@gmail.com" 
+                  value="arpanmondalbrj2018@gmail.com" 
+                  link="mailto:arpanmondalbrj2018@gmail.com" 
                 />
                 <ContactItem 
                   icon={Linkedin} 
