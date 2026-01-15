@@ -49,17 +49,35 @@ const Contact = () => {
   const { ref, isInView } = useInView();
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    
-    // In a real scenario, this would send the form data to a server
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  
+  const form = e.currentTarget;
+  const data = new FormData(form);
+  
+  try {
+    const response = await fetch(form.action, {
+      method: 'POST',
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
     });
     
-    // Reset form
-    (e.target as HTMLFormElement).reset();
+    if (response.ok) {
+      toast({
+        title: "Message sent!",
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    }
+  } catch (error) {
+    toast({
+      title: "Error",
+      description: "Failed to send message. Please try again.",
+      variant: "destructive"
+    });
+    }
   };
 
   return (
@@ -178,7 +196,9 @@ const Contact = () => {
               className="bg-background rounded-lg p-6 border border-soft-gray shadow-md hover:shadow-lg transition-shadow"
             >
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmit}
+              action={`https://formspree.io/f/${import.meta.env.VITE_FORMSPREE_ID}`}
+              method="POST">
                 <div className="grid grid-cols-1 gap-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
@@ -187,6 +207,7 @@ const Contact = () => {
                       </label>
                       <Input 
                         id="name" 
+                        name="name"
                         placeholder="Your name" 
                         required 
                         className="w-full"
@@ -197,7 +218,8 @@ const Contact = () => {
                         Email
                       </label>
                       <Input 
-                        id="email" 
+                        id="email"
+                        name="email" 
                         type="email" 
                         placeholder="Your email" 
                         required 
@@ -211,6 +233,7 @@ const Contact = () => {
                     </label>
                     <Input 
                       id="subject" 
+                      name="subject"
                       placeholder="Subject" 
                       required 
                       className="w-full"
@@ -222,6 +245,7 @@ const Contact = () => {
                     </label>
                     <Textarea 
                       id="message" 
+                      name="message"
                       placeholder="Your message" 
                       rows={5} 
                       required 
