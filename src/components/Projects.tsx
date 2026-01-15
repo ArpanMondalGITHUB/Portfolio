@@ -5,6 +5,7 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useInView, containerVariants, itemVariants } from "@/lib/animations";
+import { logos } from "@/constants/images.constants";
 
 interface Project {
   id: number;
@@ -19,29 +20,30 @@ interface Project {
 const projects: Project[] = [
   {
     id: 1,
-    title: "Help Now India",
+    title: "Hel-Now-India",
     description: "A platform to connect people in need with volunteer helpers across India, facilitating community support and assistance during emergencies.",
-    image: "https://raw.githubusercontent.com/ArpanMondalGITHUB/Help_now_India/main/src/backgrounds/image1.jpg",
-    tags: ["React", "Tailwind CSS", "Firebase"],
+    image: logos.Help_Now_India,
+    tags: ["React-Native", "Websocket", "Node", "Express"],
     githubLink: "https://github.com/ArpanMondalGITHUB/Help_now_India",
     liveLink: "https://help-now-india.vercel.app/"
   },
   {
     id: 2,
-    title: "Influencer Insight Gatherer AI",
-    description: "An AI-powered tool for gathering insights from social media influencers to analyze engagement patterns and audience behaviors.",
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=2874&auto=format&fit=crop",
-    tags: ["Next.js", "AI", "Data Analysis"],
-    githubLink: "https://github.com/ArpanMondalGITHUB/influencer-insight-gatherer-ai-af22ccb1"
+    title: "Raw-Gent",
+    description: "Ai agent that will help you code better , it can test , review and make small features",
+    image: logos.Raw_Gent,
+    tags: ["react.js", "AI", "Goole ADK", "FastApi","Docker","VM"],
+    githubLink: "https://github.com/ArpanMondalGITHUB/Raw-Gent",
+    liveLink:"https://raw-gent.vercel.app/"
   },
   {
     id: 3,
-    title: "Portfolio Website",
-    description: "A modern, animated portfolio website showcasing my work as a developer with smooth transitions and responsive design.",
-    image: "https://images.unsplash.com/photo-1497091071254-cc9b2ba7c48a?q=80&w=2874&auto=format&fit=crop",
-    tags: ["React", "Framer Motion", "Tailwind CSS"],
-    githubLink: "https://github.com/ArpanMondalGITHUB",
-    liveLink: "https://lovable.dev/projects/9ba5d051-4a3c-4d0d-bb39-a1842e2160f5"
+    title: "Styler",
+    description: "An ai wrapper where you can tranform your picture like the style you want with no prompt",
+    image: logos.Styler,
+    tags: ["React", "Gemini 3", "FastApi"],
+    githubLink: "https://github.com/ArpanMondalGITHUB/StylerOP",
+    liveLink: "https://styler-op.vercel.app/"
   }
 ];
 
