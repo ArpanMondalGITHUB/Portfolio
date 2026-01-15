@@ -84,6 +84,7 @@ const Navbar = () => {
           ))}
           <motion.a
             href="/Arpan_Mondal_Resume.pdf"
+            download="Arpan_Mondal_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
             custom={navLinks.length}
